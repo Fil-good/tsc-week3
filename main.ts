@@ -19,6 +19,7 @@ rl.on('line', (line: string) => {
     process.exit(0);
   }
 
+  if(game.isGameOver != true) {
 
   game.render(line);
 
@@ -26,6 +27,10 @@ rl.on('line', (line: string) => {
 
   rl.prompt();
 
+  } else {
+    game.render("");
+
+  }
 
 }).on('close', () => {
   console.log('Bye!');
