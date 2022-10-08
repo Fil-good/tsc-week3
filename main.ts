@@ -25,8 +25,8 @@ rl.on('line', (line: string) => {
     if (game.isGameOver != true) {
       rl.prompt();
     } else {
-    process.stdout.write(`the winner is ${game.currentPlayer}`);
-    }
+      process.stdout.write(`the winner is ${game.currentPlayer == "X" ? "O" : "X"}. Congrats!`);
+      }
 
 }).on('close', () => {
   console.log('Bye!');

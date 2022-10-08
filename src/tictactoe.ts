@@ -57,12 +57,6 @@ class Game extends Board {
 
   }
 
-  public command(line: string) {
-
-    if (this.isGameOver != true) {
-      process.stdout.write(`you putted ${line}!`);
-    }
-  }
 }
 
 const game = new Game();
