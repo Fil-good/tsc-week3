@@ -5,7 +5,8 @@ import { game } from "./src/tictactoe";
 
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
+  prompt: "please type the number where you want to place your symbol >"
 });
 
 game.render("");
@@ -19,18 +20,13 @@ rl.on('line', (line: string) => {
     process.exit(0);
   }
 
-  if(game.isGameOver != true) {
-
-  game.render(line);
-
-  game.command(line.trim());
-
-  rl.prompt();
-
-  } else {
-    game.render("");
-
-  }
+    game.render(line);
+    game.checkIfWinner(game.board);
+    if (game.isGameOver != true) {
+      rl.prompt();
+    } else {
+    process.stdout.write(`the winner is ${game.currentPlayer}`);
+    }
 
 }).on('close', () => {
   console.log('Bye!');
